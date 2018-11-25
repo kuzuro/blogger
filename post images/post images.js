@@ -1,4 +1,7 @@
-﻿<script>
+<!--
+JQuery 필수
+-->
+<script>
 //<![CDATA[
 var postImg = $(".post-body img");
 var newImg = new Array();
