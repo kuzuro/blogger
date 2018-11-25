@@ -1,4 +1,7 @@
-﻿<script>
+<!--
+JQuery 필수
+-->
+<script>
 var cArr = new Array();
 var cObj = new Object();
 
