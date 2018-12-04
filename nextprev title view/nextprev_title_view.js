@@ -6,9 +6,6 @@
 
       $.get(newerLink.attr("href"), function(newer){
           newerLink.parent().append("<div class='next-title'>"+$(newer).find("h3.post-title").text()+"</div>");
-
-		  newerLink.parent().append("<img src='"+$(newer).find(".post-body img").eq(1).attr("src")+"'>");
-
       },"html");
 
       $.get(olderLink.attr('href'), function(older){
