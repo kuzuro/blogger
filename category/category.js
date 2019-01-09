@@ -1,25 +1,19 @@
-<!--
-JQuery 필수
--->
 <script>
-var cArr = new Array();
-var cObj = new Object();
+//<![CDATA[
+var cate = document.getElementById("HTML1").querySelectorAll("li");
+var label = document.getElementById("Label1").querySelectorAll("li");
+var label_cnt = document.getElementById("Label1").querySelectorAll("li span");
 
-var label = $('#Label1 .widget-content ul li');
-var category = $('#HTML1 .widget-content ul li');
+for(var i = 0; i < label.length; i++){
+	for(var j = 0; j < cate.length; j++){
+	
+		if(label[i].querySelector("a").getAttribute("href") == cate[j].querySelector("a").getAttribute("href"))	{
+			var cnt = label_cnt[i].innerHTML;
+			cate[j].querySelector("a").outerHTML = cate[j].innerHTML + " " + cnt;
 
-for(var i = 0; i < label.length; i++) {
-  cObj.url = label.children('a').eq(i).attr("href");
-  cObj.txt = label.children('a').eq(i).text();
-  cObj.ltr = label.children('span').eq(i).text();
-
-  cArr.push(cObj);
-
-  for(var j = 0; j < category.length; j++) {
-    if(cArr[i].url == category.children('a').eq(j).attr('href')) {
-      category.eq(j).append(' ' + cArr[i].ltr);
-    }
-  }
+			label[i].outerHTML = "";
+        } 
+    }
 }
-$('#Label1').attr('style', 'display:none');
+//]]>
 </script>
