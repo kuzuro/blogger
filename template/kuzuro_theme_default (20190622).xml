@@ -138,6 +138,9 @@ footer { padding:30px 0; }
 </b:if>
 <b:if cond='data:blog.pageType == &quot;static_page&quot;'>
     <style type='text/css'>
+		.post-body,
+		.post-edit { display: block; }
+		.date { display:none; }
     </style>
 </b:if>
 
