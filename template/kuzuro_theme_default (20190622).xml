@@ -13,9 +13,9 @@ h1, h2, h3, h4, h5, h6 { margin:0; padding:0; }
 a { color:#05f; text-decoration:none; }
 a:hover { text-decoration:underline; }
 #navbar { display:none; }
-h1 { font-size:60px; font-weight:bold; }
-h2 { font-size:32px; font-weight:bold; }
-h3 { font-size:24px; font-weight:bold; }
+h1 { font-size:60px; font-weight:bold; }  /* 블로스 제목 */
+h2 { font-size:32px; font-weight:bold; }  /* 사이드바 제목 */
+h3 { font-size:24px; font-weight:bold; }  /* 게시물 제목 */
 h4 { font-size:22px; font-weight:bold; }
 h5 { font-size:20px; font-weight:bold; }
 h6 { font-size:18px; font-weight:bold; }
@@ -44,7 +44,8 @@ header .description { display:none; }
 
 .blog-posts {}
 .blog-posts .post { margin-bottom:50px; }
-.post h2 a { color:#000000; text-decoration:none; }
+.post 
+ a { color:#000000; text-decoration:none; }
 .post .post-body { margin:30px 0; }
 
 .post-body p { font-size:18px; line-height:2; margin:30px 0; }
@@ -105,8 +106,8 @@ footer { padding:30px 0; }
 @media screen and (max-width: 800px)
 {
 	h1 { }
-	h2 { font-size:28px; }
-	h3 { font-size:20px; }
+	h2 { font-size:20px; }
+	h3 { font-size:28px; }
 	h4 { font-size:18px; }
 	#main { float:none; width:100%; }
 	.post-body iframe { height:450px; }
@@ -550,9 +551,9 @@ head.appendChild(script);
     </span>
 
     <b:if cond='data:post.title'>
-      <h2 class='post-title entry-title' itemprop='name'>
+      <h3 class='post-title entry-title' itemprop='name'>
         <a expr:href='data:post.link ? data:post.link : data:post.url'><data:post.title/></a>      
-      </h2>
+      </h3>
     </b:if>
 
     <div class='post-body entry-content' expr:id='&quot;post-body-&quot; + data:post.id' expr:itemprop='(data:blog.metaDescription ? &quot;&quot; : &quot;description &quot;) + &quot;articleBody&quot;'>
@@ -868,7 +869,7 @@ head.appendChild(script);
     </b:widget-settings>
     <b:includable id='main'>
   <b:if cond='data:title != &quot;&quot;'>
-    <h3><data:title/></h3>
+    <h2><data:title/></h2>
   </b:if>
   <div expr:class='&quot;widget-content &quot; + data:display + &quot;-label-widget-content&quot;'>
     <b:if cond='data:display == &quot;list&quot;'>
@@ -907,7 +908,7 @@ head.appendChild(script);
   <b:widget id='BlogSearch1' locked='false' title='이 블로그 검색' type='BlogSearch' version='1'>
     <b:includable id='main'>
     <b:if cond='data:title != &quot;&quot;'>
-      <h3 class='title'><data:title/></h3>
+      <h2 class='title'><data:title/></h2>
     </b:if>
 
     <div class='widget-content'>
@@ -947,7 +948,7 @@ head.appendChild(script);
     </b:widget-settings>
     <b:includable id='main'>
   <b:if cond='data:title != &quot;&quot;'>
-    <h3><data:title/></h3>
+    <h2><data:title/></h2>
   </b:if>
   <div class='widget-content'>
   <div id='ArchiveList'>
