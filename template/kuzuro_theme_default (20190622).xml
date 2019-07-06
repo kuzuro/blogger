@@ -44,8 +44,7 @@ header .description { display:none; }
 
 .blog-posts {}
 .blog-posts .post { margin-bottom:50px; }
-.post 
- a { color:#000000; text-decoration:none; }
+.post h3 a { color:#000000; text-decoration:none; }  /* 게시물 제목 색 */
 .post .post-body { margin:30px 0; }
 
 .post-body p { font-size:18px; line-height:2; margin:30px 0; }
