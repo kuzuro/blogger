@@ -13,9 +13,9 @@ h1, h2, h3, h4, h5, h6 { margin:0; padding:0; }
 a { color:#05f; text-decoration:none; }
 a:hover { text-decoration:underline; }
 #navbar { display:none; }
-h1 { font-size:60px; font-weight:bold; }  /* 블로스 제목 */
-h2 { font-size:32px; font-weight:bold; }  /* 사이드바 제목 */
-h3 { font-size:24px; font-weight:bold; }  /* 게시물 제목 */
+h1 { font-size:60px; font-weight:bold; }  /* 블로그 제목 */
+h2 { font-size:24px; font-weight:bold; }  /* 사이드바 제목 */
+h3 { font-size:32px; font-weight:bold; }  /* 게시물 제목 */
 h4 { font-size:22px; font-weight:bold; }
 h5 { font-size:20px; font-weight:bold; }
 h6 { font-size:18px; font-weight:bold; }
