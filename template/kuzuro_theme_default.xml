@@ -7,6 +7,7 @@
     <title><data:blog.pageTitle/></title>
 
     <b:skin><![CDATA[
+/* 기본 설정 */
 body { margin:0; padding:0; }
 ul, ol, li { margin:0; padding:0; list-style:none; }
 h1, h2, h3, h4, h5, h6 { margin:0; padding:0; }
@@ -19,35 +20,36 @@ h3 { font-size:32px; font-weight:bold; }  /* 게시물 제목 */
 h4 { font-size:22px; font-weight:bold; }
 h5 { font-size:20px; font-weight:bold; }
 h6 { font-size:18px; font-weight:bold; }
-
 .section { margin:0; padding:0; }
 .date { color:#999; }
 .claer { clear:both; }
 .quickedit { display:none; }
 
-
-
-#root {}
+/* 블로그 레이아웃 */
+#root { }
 header { }
-#container { width:calc(1200px - 40px); margin:0 auto; padding:20px; }
-	#main { width:860px; float:left; }
-	aside { width:260px; float:right; }
+#container { width:calc(1200px - 40px); margin:0 auto; padding:20px; }  /* 블로그 가로 크기 */
+	#main { width:860px; float:left; }  /* 컨텐츠 가로 크기 */
+	aside { width:260px; float:right; }  /* 사이드바 가로 크기 */
 #container::after { content:""; display:block; clear:both; }
 foorer{ margin-top:60px; }
 
+/* 관리자 모드 레이아웃 설정 */
+body#layout div.section#main { width:400px; }
+body#layout aside .widget .widget-content { margin:0; }
 
 
-header { text-align:center; padding:80px; }
-header h1 a { color:#000000; text-decoration:none; } 
-header .description { display:none; }
+/* 헤더 상세 설정 */
+header #header { text-align:center; padding:80px; }
+header #header h1 a { color:#000000; text-decoration:none; } 
+header #header .description { display:none; }
 
-
+/* 메인 설정 */
 .blog-posts {}
 .blog-posts .post { margin-bottom:50px; }
 .post h3 a { color:#000000; text-decoration:none; }  /* 게시물 제목 색 */
-.post .post-body { margin:30px 0; }
-
-.post-body p { font-size:18px; line-height:2; margin:30px 0; }
+.post .post-body { margin:30px 0; font-size:16px; line-height:1.6; }  /* 게시물 내용 글씨 크기 */
+.post-body p { margin:20px 0; }
 .post-body img { max-width:calc(100% - 20px); border: 10px solid #eee; display:block; margin:0 auto; }
 .post-body .separator { }
 .post-body .separator a { margin:0; }
@@ -56,7 +58,7 @@ header .description { display:none; }
 .post-footer .post-edit { text-align:right; }
 
 .comments { margin:10px 0 60px 0; }
-.comment-header .user { font-size:28px; }
+.comment-header .user { font-size:28px; }  /* 댓글 작성자 이름 */
 .comment-header .user a { color:#000; }
 .comment-header .datetime a { color:#999; }
 .comments .comments-content .datetime { margin-left:10px; }
@@ -78,27 +80,26 @@ header .description { display:none; }
 .comments .comments-content .comment-thread { margin:10px 0; }
 .comments .comment-replybox-thread { margin-top:20px; }
 
-
-
+/* 페이징(이전/다음페이지) */
 #blog-pager { margin:20px 0; }
 #blog-pager-newer-link .blog-pager-newer-link { font-size:20px; }
 #blog-pager-older-link .blog-pager-older-link { font-size:20px; }
 
 
-
+/* 사이드바 */
 aside .widget { margin:0 0 30px 0; }
 .widget ul { margin:0; padding:0; }
 .widget ul li { margin:10px 0; padding:0; }
 aside .widget .widget-content input.gsc-input { font-size:16px; font-family:'맑은 고딕', verdana; }
 
 
-
+/* 푸터 */
 footer { padding:30px 0; }
 
 
-
+/* 미디어쿼리 : 화면의 크기가 특정 크기 이하가 될 경우 작동 */
 @media screen and (max-width: 1240px) {
-	#container { width:calc(100% - 40px); }
+	#container { width:calc(100% - 40px); }  
 	#main { width:calc(100% - 260px - 40px); }
 }
 
@@ -117,33 +118,35 @@ footer { padding:30px 0; }
 
 @media screen and (max-width: 600px)
 {
-	.post-body p { font-size:16px; }
 	.post-body iframe { height:350px; }
 	.post-footer,
 	.comment-content { font-size:14px; }
 }
 ]]></b:skin>
 
+<!-- 게시물 목록 -->
 <b:if cond='data:blog.pageType != &quot;item&quot;'>
 	<style type='text/css'>
 		.post-body { display: none; }
 		.post-edit { display: none; }
 		.jump-link { display: none; }
-    </style>
+	</style>
 </b:if>
 
+<!-- 게시물 조회 -->
 <b:if cond='data:blog.pageType == &quot;item&quot;'>
 	<style type='text/css'>
-    </style>
+	</style>
 </b:if>
+	  
+<!-- 페이지 조회 -->
 <b:if cond='data:blog.pageType == &quot;static_page&quot;'>
-    <style type='text/css'>
+	<style type='text/css'>
 		.post-body,
 		.post-edit { display: block; }
 		.date { display:none; }
-    </style>
+	</style>
 </b:if>
-
 
     <b:if cond='data:skin.vars.body_background.image.isResizable'>
       <b:include cond='not data:view.isPreview' data='{                          image: data:skin.vars.body_background.image,                          selector: &quot;body&quot;                        }' name='responsiveImageStyle'/>
@@ -198,7 +201,7 @@ head.appendChild(script);
 
     <header>
       <b:section class='header' id='header' maxwidgets='1' name='Header' showaddelement='no'>
-        <b:widget id='Header1' locked='true' title='템플릿 제작(헤더)' type='Header' version='1'>
+        <b:widget id='Header1' locked='true' title='블로그 헤더' type='Header' version='1'>
           <b:widget-settings>
             <b:widget-setting name='displayUrl'/>
             <b:widget-setting name='displayHeight'>0</b:widget-setting>
@@ -933,7 +936,7 @@ head.appendChild(script);
     <b:include name='quickedit'/>
   </b:includable>
   </b:widget>
-  <b:widget id='BlogArchive1' locked='false' title='' type='BlogArchive' version='1'>
+  <b:widget id='BlogArchive1' locked='false' title='보관함' type='BlogArchive' version='1'>
     <b:widget-settings>
       <b:widget-setting name='showStyle'>HIERARCHY</b:widget-setting>
       <b:widget-setting name='yearPattern'>yyyy</b:widget-setting>
