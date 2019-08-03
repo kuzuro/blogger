@@ -4,8 +4,16 @@
   <head>
     <meta expr:content='data:blog.isMobile         ? &quot;width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0&quot;         : &quot;width=1100&quot;' name='viewport'/>
     <b:include data='blog' name='all-head-content'/>
-    <title><data:blog.pageTitle/></title>
-
+   
+    
+    <b:if cond='data:blog.pageType != &quot;item&quot; && data:blog.pageType != &quot;static_page&quot;'>  
+	<!-- 일반 상태에서는 블로그 제목만 표시 -->
+        <title><data:blog.title/></title>
+    <b:else/>
+	<!-- 게시물 또는 페이지 조회시 [ 게시물(페이지) 제목 : 블로그 제목 ]으로 표시-->
+	<title><data:blog.pageName/>  : <data:blog.title/></title>
+    </b:if>
+	  
     <b:skin><![CDATA[
 /* 기본 설정 */
 body { margin:0; padding:0; }
