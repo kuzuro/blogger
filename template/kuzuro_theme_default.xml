@@ -16,7 +16,7 @@
 	  
     <b:skin><![CDATA[
 /* 기본 설정 */
-body { margin:0; padding:0; }
+body { margin:0; padding:0; font-family:'맑은 고딕', verdana; }
 ul, ol, li { margin:0; padding:0; list-style:none; }
 h1, h2, h3, h4, h5, h6 { margin:0; padding:0; }
 a { color:#05f; text-decoration:none; }
