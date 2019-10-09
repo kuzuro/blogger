@@ -6,7 +6,7 @@
     <b:include data='blog' name='all-head-content'/>
    
     
-    <b:if cond='data:blog.pageType != &quot;item&quot; && data:blog.pageType != &quot;static_page&quot;'>  
+    <b:if cond='data:blog.pageType != &quot;item&quot; and data:blog.pageType != &quot;static_page&quot;'>  
 	<!-- 일반 상태에서는 블로그 제목만 표시 -->
         <title><data:blog.title/></title>
     <b:else/>
