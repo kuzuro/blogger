@@ -40,7 +40,7 @@ header { }
 	#main { width:860px; float:left; }  /* 컨텐츠 가로 크기 */
 	aside { width:260px; float:right; }  /* 사이드바 가로 크기 */
 #container::after { content:""; display:block; clear:both; }
-foorer{ margin-top:60px; }
+footer{ margin-top:60px; }
 
 /* 관리자 모드 레이아웃 설정 */
 body#layout div.section#main { width:400px; }
