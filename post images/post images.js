@@ -1,4 +1,7 @@
 <script>
+	
+// old version
+	
 //<![CDATA[
 var postImg = document.querySelectorAll(".post-body img");	
 
