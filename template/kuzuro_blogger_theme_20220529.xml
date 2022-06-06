@@ -529,9 +529,9 @@ aside .widget .widget-content .gsc-search-button { display:none; }
 				}
 
 				if(data.feed.entry[i].link[2] != null) { 
-					url= `'${data.feed.entry[i].link[replyIndex].href}'`;
+					url= `${data.feed.entry[i].link[replyIndex].href}`;
 				} else {
-					url = "'#'"
+					url = "#"
 				}
 
 				//writer = data.feed.entry[i].author[0].name.$t;
