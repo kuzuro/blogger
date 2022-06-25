@@ -813,6 +813,7 @@ aside .widget .widget-content .gsc-search-button { display:none; }
       changeOgrImg();
       codeBoxSetting();
       replyDateSetting();
+      navigaterSetting();
       </b:if>  
     </script>
 	  
