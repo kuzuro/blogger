@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
-<html b:version='2' class='v2' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' lang='ko' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<html b:css='false' b:js='true' b:version='2' class='v2' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' lang='ko' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
   <head>
     <meta content='width=device-width, initial-scale=1, user-scalable=no' name='viewport'/>
     <b:include data='blog' name='all-head-content'/>
     <title><data:blog.pageTitle/></title>
 
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
-
-    <b:skin><![CDATA[
-
+    
+     <b:skin><![CDATA[
+      
 /* ----------
 공통 스타일
 ---------- */
@@ -17,7 +17,7 @@
 * { box-sizing:border-box; }
 
 html, body { height:100%; }
-body { margin:0; padding:0; font-family:'맑은 고딕', arial; }
+body { margin:0; padding:0; font-family:'맑은 고딕', arial; word-break: break-word; word-wrap: break-word; }
 
 a { color:#05f; text-decoration:none; }
 a:hover { text-decoration:underline; }
@@ -31,11 +31,13 @@ h3 { font-size:26px; font-weight:bold; }
 h4 { font-size:24px; font-weight:bold; }
 h5 { font-size:22px; font-weight:bold; }
 h6 { font-size:20px; font-weight:bold; }
+h1, h2, h3, h4, h5, h6 { margin:0; padding:0; line-height:1.5; }
 
 .section { margin:0; padding:0; }
 .date { color:#999; }
 .claer { clear:both; }
-.widget { line-height:1.6; }
+.widget { /*line-height:1.6;*/ }
+.hidden { display:none; }
 
 /* ----------
 레이아웃
@@ -70,15 +72,15 @@ header #header .description { display:none; }
 .post .post-body { margin:30px 0; }
 
 .post-body p { font-size:18px; line-height:2; margin:30px 0; }
-.post-body img { max-width:calc(100% - 20px); border: 10px solid #eee; display:block; margin:0 auto; }
+.post-body img { max-width:100%; border: 10px solid #eee; display:block; margin:0 auto; }
 .post-body .separator a { margin:0; }
 .post-body iframe { max-width:100%; width:860px; height:550px; }
 
 .post-footer { padding:10px 0; }
 .post-labels a { margin-right:0px; }
-.post-labels a::before { content:"#" }
-.post-labels a::after { content:""; }
-.post-labels a:last-child::after { content:""; }
+.post-labels a::before { content:&quot;#&quot; }
+.post-labels a::after { content:&quot;&quot;; }
+.post-labels a:last-child::after { content:&quot;&quot;; }
 .post-edit { text-align:right; }
 
 
@@ -86,14 +88,19 @@ header #header .description { display:none; }
 
 #comments { margin:10px 0 60px 0; }
 
-.comment-header .user { font-size:28px; }
+.comment-header .user { font-size:28px; font-weight:bold; font-style:normal; }
 .comment-header .user a { color:#000; }
 .comment-header .datetime a { color:#999; }
 
-.comments .comments-content { }
-.comments .comments-content .comment { padding:0; margin:0 0 20px 0;  }
+.comments { clear:both; }
+.comments .avatar-image-container { float:left; width:36px; max-height:36px; overflow:hidden; }
+.comments .comment-block { margin-left:48px; }
+
+.comments .comments-content { margin-bottom:20px; }
+.comments .comments-content .comment { padding:0; margin:0 0 20px 0; clear:both; }
 .comments .comments-content .comment-thread { margin:10px 0; }
 .comments .comments-content .comment-thread ol { margin:30px 0 0 0; }
+.comments .comments-content .inline-thread { padding:20px; }
 .comments .comments-content .datetime { margin-left:10px; }
 .comments .comments-content .comment-content { font-size:16px; line-height:2; text-align:left; margin:20px 0; }
 .comments .comments-content .comment-replies { margin-left:50px; margin-top:10px; background: #f9f9f9; }
@@ -105,16 +112,16 @@ header #header .description { display:none; }
 .comments .thread-expanded .thread-arrow, .comments .thread-collapsed .thread-arrow { display:none; }
 
 .comments .thread-count { font-size:20px; font-weight:bold; }
-.comments .thread-count a::before { content: ""; }
-.comments .thread-count a::after { content: " 접기/펴기"; }
+.comments .thread-count a::before { content: ''; }
+.comments .thread-count a::after { content: ' 접기/펴기'; }
 
 .comments .continue { cursor: auto; }
 .comments .continue a { font-size:20px; font-weight:bold; padding:10px 0; display:inline-block; }
 
-.comment-replies .continue a::before { content:"이 답글에 이어서 "; }
-.comment-replies .continue a::after { content:" 작성"; }
+.comment-replies .continue a::before { content:'이 답글에 이어서 '; }
+.comment-replies .continue a::after { content:' 작성'; }
 #top-continue { font-size:20px; font-weight:bold; margin-top:50px; }
-#top-continue a::before { content:"이 게시물에 "; }
+#top-continue a::before { content:'이 게시물에 '; }
 
 .comments .comment-replybox-thread { }
 .comments .comment-replybox-single { }
@@ -125,11 +132,12 @@ header #header .description { display:none; }
 .comments .comment-replybox-thread.activeReply { padding:20px; }
 .comments .comment-replybox-single.activeReply { margin-left:50px; }
 
+.comments .thread-chrome.thread-collapsed { display:none; }
 
 
 /* -- 페이징 -- */
 
-#blog-pager { margin:20px 0; display:flex; justify-content: space-between; }
+#blog-pager { margin:20px 0; display:flex; justify-content: space-between; text-align:center; }
 #blog-pager-newer-link, #blog-pager-older-link { font-size:20px; width:45%; float:none; }
 #blog-pager-newer-link { text-align:left; }
 #blog-pager-older-link { text-align:right; }
@@ -180,15 +188,32 @@ aside .widget ul > li > ul { margin-left:20px }
 
 
 /* ----------
-추가 기능 
+추가 기능
 ---------- */
-
-/* 댓글 메시지 */
-.comments .commentMsg { font-size:14px; line-height:1.6; text-align:right; margin:10px 0 30px 0; word-break: keep-all; }
 
 /* 스크롤 표시 */
 #scroll_indicator { width:100%; height:3px; background:transparent; position: fixed; top: 0; z-index: 99; }
 .progressBar { width:0; height:3px; background:#333; }
+
+
+/* 게시물 내부 박스 */
+.post-body > div.box { padding:20px; margin:20px 0; border:1px solid #999; background:#eee; }
+.post-body > div.box > p { font-size:16px; margin:20px 0; }
+
+
+/* 코드 박스 */
+.codeBox .codeCopy { position: relative; height:29px; }
+.codeBox .codeCopy button { font-size:14px; font-weight:bold; color:#05f; height:30px; padding:5px 10px; position: absolute; top:0; right: 0; cursor:pointer; background:#eee; border:1px solid #999; border-bottom:none;  }
+.codeBox pre { font-size:12px; line-height:1.6; font-family:consolas; padding:20px; margin:0; max-height: 250px; overflow:auto; background:#eee; border:1px solid #999;  }
+.codeBox.expand pre { max-height:600px; }
+.codeBox .expandBtnSection { /*padding:5px; background:#eee; border:1px solid #999; border-top:none;*/ }
+.codeBox .expandBtn { padding:5px; margin:0 auto; font-size:14px; color:#05f; font-weight:bold; display:block; background:none; border:none; cursor: pointer; }
+.codeBox .expandBtn::before { content: '+ 늘리기'; }
+.codeBox.expand .expandBtn::before { content: '- 줄이기'; }
+
+
+/* 댓글 메시지 */
+.comments .commentMsg { font-size:14px; line-height:1.6; text-align:right; margin:10px 0 30px 0; word-break: keep-all; }
 
 
 /* 최신/이전 게시물 제목 */
@@ -201,36 +226,40 @@ aside .widget .widget-content input.gsc-input::placeholder { color:#ccc; }
 aside .widget .widget-content .gsc-search-button { display:none; }
 
 
-
- ]]></b:skin>  
+]]></b:skin>  
     
-    <b:if cond='data:blog.pageType != &quot;item&quot;'>
-      <!-- 게시물 목록 -->
-      <style>
-        .post-body { display: none; }
-        .post-edit { display: none; }
-        .jump-link { display: none; }
-      </style>
-    </b:if>
+    
+<!-- 동적 스타일 -->
+    
+<b:if cond='data:blog.pageType != &quot;item&quot;'>
+  <!-- 게시물 목록 -->
+  <style>
+	.post-body { display: none; }
+	.post-edit { display: none; }
+	.jump-link { display: none; }
+  </style>
+</b:if>
 
-    <b:if cond='data:blog.pageType == &quot;item&quot;'>
-      <!-- 게시물 조회 -->
-      <style>
+<b:if cond='data:blog.pageType == &quot;item&quot;'>
+  <!-- 게시물 조회 -->
+  <style>
+  </style>
+</b:if>
 
-      </style>
-    </b:if>
-
-    <b:if cond='data:blog.pageType == &quot;static_page&quot;'>
-      <!-- 페이지 조회 -->
-      <style>
-        .post-body,
-        .post-edit { display: block; }
-        .date { display:none; }
-        .post-labels { display:none; }
-      </style>
-    </b:if>
+<b:if cond='data:blog.pageType == &quot;static_page&quot;'>
+  <!--  페이지 조회 -->
+  <style>
+	.post-body,
+	.post-edit { display: block; }
+	.date { display:none; }
+	.post-labels { display:none; }
+  </style>
+</b:if>
+    
     <b:include data='blog' name='google-analytics'/>
   </head>
+
+
   <body>
     <div id='root'> 
 
@@ -240,7 +269,7 @@ aside .widget .widget-content .gsc-search-button { display:none; }
 
       <header>
         <b:section class='header' id='header' maxwidgets='1' name='Header' showaddelement='no'>
-          <b:widget id='Header1' locked='true' title='kuzuro template(헤더)' type='Header' version='1'>
+          <b:widget id='Header1' locked='true' title='template(헤더)' type='Header' version='1'>
             <b:widget-settings>
               <b:widget-setting name='displayUrl'/>
               <b:widget-setting name='displayHeight'>0</b:widget-setting>
@@ -395,14 +424,20 @@ aside .widget .widget-content .gsc-search-button { display:none; }
                   <a expr:href='data:post.link ? data:post.link : data:post.url'><data:post.title/></a>
                 </h2>
               </b:if>
-              <div class='post-body entry-content' expr:id='&quot;post-body-&quot; + data:post.id' expr:itemprop='(data:blog.metaDescription ? &quot;&quot; : &quot;description &quot;) + &quot;articleBody&quot;'>
-                <data:post.body/>
-              </div>
+              
+              <b:if cond='data:blog.pageType == &quot;item&quot; || data:blog.pageType == &quot;static_page&quot;'>             
+                <div class='post-body entry-content' expr:id='&quot;post-body-&quot; + data:post.id' expr:itemprop='(data:blog.metaDescription ? &quot;&quot; : &quot;description &quot;) + &quot;articleBody&quot;'>
+                  <data:post.body/>
+                </div>
+              </b:if>
+              
               <b:if cond='data:post.hasJumpLink'>
+                <!-- 더보기 링크. 이 블록은 의도적으로 출력되지 않음 -->
                 <div class='jump-link'>
                   <a expr:href='data:post.url + &quot;#more&quot;' expr:title='data:post.title'><data:post.jumpText/></a>
                 </div>
               </b:if>
+		    
               <div class='post-footer'>
                 <div class='post-labels'>
                   <b:if cond='data:top.showPostLabels and data:post.labels'>
@@ -488,79 +523,146 @@ aside .widget .widget-content .gsc-search-button { display:none; }
       </footer>
     </div>
 
-    <!-- 최근 댓글 목록 -->
+	  
+	  
+
+
+    
+    
+    
+    
     <script>
     //<![CDATA[
 
-		// 현재 블로그의 댓글피드를 콜백받는 스크립트 추가
-		let createScript = document.createElement("script");
-		createScript.src = `https://${(new URL(document.location.href)).hostname}/feeds/comments/default?alt=json-in-script&callback=createReplyList`;
-        
-		document.getElementsByTagName('head')[0].appendChild(createScript);
 
-        function createReplyList(data) {
+	// ----------
+	// 게시물 날짜 표시 설정
+	// ----------
+	function postDateSetting() {
+		let dateElement = document.querySelectorAll(".date");
+		for(let i = 0; i < dateElement.length; i++) {
+			let dateSplit = dateElement[i].innerText.split('/');
+			dateSplit[0] = (dateSplit[0].length > 1 ? dateSplit[0] : "0" + dateSplit[0]);
+			dateSplit[1] = (dateSplit[1].length > 1 ? dateSplit[1] : "0" + dateSplit[1]);
+			dateElement[i].innerText = `${dateSplit[2]}-${dateSplit[0]}-${dateSplit[1]}`;
+		} 
+	}
 
-			if(!data) {
-				return false;
-			}
 
-			const replyListCount = 25;
-            const replyStrCount = 30;
+	// ----------
+	// 최근 댓글 목록
+	// ----------
+	let createScript = document.createElement("script");
+	createScript.src = `https://${(new URL(document.location.href)).hostname}/feeds/comments/default?alt=json-in-script&callback=createReplyList`;        
+	document.getElementsByTagName('head')[0].appendChild(createScript);
 
-            let url = "";
-            let writer = "";
-            let content = "";
-            let reply = "";
-            let replyIndex = 0;
+    function createReplyList(data) {
 
-            let relpyList = "";
+		if(!data) {
+			return false;
+		}
 
-            for (let i = 0; i < replyListCount; i++) {
+		const replyListCount = 25;
+        const replyStrCount = 30;
 
-				if(data == undefined || data.feed == undefined || data.feed.entry[i] == undefined) {
+        let url = "";
+        let writer = "";
+        let content = "";
+        let reply = "";
+        let replyIndex = 0;
+
+        let relpyList = "";
+
+        for (let i = 0; i < replyListCount; i++) {
+			if(data == undefined || data.feed == undefined || data.feed.entry[i] == undefined) {
+				break;
+			}				
+
+			for (let j = 0; j < data.feed.entry[i].link.length; j++) { 
+				if (data.feed.entry[i].link[j].rel == 'alternate') {
+					replyIndex = j;
 					break;
-				}				
-
-				for (let j = 0; j < data.feed.entry[i].link.length; j++) { 
-					if (data.feed.entry[i].link[j].rel == 'alternate') {
-						replyIndex = j;
-						break;
-					}
 				}
-
-				if(data.feed.entry[i].link[2] != null) { 
-					url= `${data.feed.entry[i].link[replyIndex].href}`;
-				} else {
-					url = "#"
-				}
-
-				//writer = data.feed.entry[i].author[0].name.$t;
-				content = (data.feed.entry[i].content.$t).replace(/(<([^>]+)>)/ig,"").substring(0, replyStrCount);
-				reply = `<li><a href="${url}">${content}</a></li>`; 
-				relpyList += reply
-			} 
-
-			// recentReply 클래스가 있는 요소에 출력
-			if(document.querySelector(".recentReply")) {
-				document.querySelector(".recentReply").innerHTML = relpyList;
 			}
-			
+
+			if(data.feed.entry[i].link[2] != null) { 
+				url= `${data.feed.entry[i].link[replyIndex].href}`;
+			} else {
+				url = "#"
+			}
+
+			//writer = data.feed.entry[i].author[0].name.$t;
+			content = (data.feed.entry[i].content.$t).replace(/(<([^>]+)>)/ig,"").substring(0, replyStrCount);
+			reply = `<li><a href="${url}">${content}</a></li>`; 
+			relpyList += reply
+		} 
+
+		// recentReply 클래스가 있는 요소에 출력
+		if(document.querySelector(".recentReply")) {
+			document.querySelector(".recentReply").innerHTML = relpyList;
 		}		
+	}
+
+ 
+	// ----------
+    // 스크롤 표시
+	// ----------
+	document.addEventListener("scroll", function() {
+
+		let scollValue = document.body.scrollTop || document.documentElement.scrollTop;
+		let docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  		let scroll = (scollValue / docHeight) * 100;
+
+		document.getElementsByClassName("progressBar")[0].style.width = (scroll + "%");      
+    });
+
+
+	// ----------
+	// 사이드바 타이틀 변경(h2 -> h3) 
+	// ----------
+	let sideTitle = document.querySelectorAll("aside h2")
+
+	for(let i = 0; i < sideTitle.length; i++) {
+  		let createHeader = document.createElement("h3");
+  		createHeader.innerText = sideTitle[i].innerText; 
+  		sideTitle[i].parentNode.replaceChild(createHeader, sideTitle[i]);
+	}    
+  
     //]]>
     </script>
+    
+    
+    
 
 
     <b:if cond='data:blog.pageType == &quot;item&quot;'>
+      
+    <script>
+    //<![CDATA[
 
-      <!-- 게시물 이미지 설정 -->
-      <script>
-      //<![CDATA[
+
+	// ----------
+	// 게시물 이미지 태그 변경 div.separator → p
+	// ----------
+	function changeSprImg() {
+  		let separatorImg = document.querySelectorAll(".post-body > div.separator > a > img");
+   		for(let i = 0; i < separatorImg.length; i++) {
+			separatorImg[i].closest(".separator").outerHTML= `<p>${separatorImg[i].outerHTML}</p>`;
+   		}
+	}	
+
+
+	// ----------
+	// 게시물 이미지 설정
+	// ----------
+	function changeOgrImg() {
 		let postImg = document.querySelectorAll(".post-body img");
 
 		for(let i = 0; i < postImg.length; i++) {
 			postImg[i].parentNode.removeAttribute("style");
 
 			// 모든 속성 제거
+			postImg[i].removeAttribute("alt");
             postImg[i].removeAttribute("width");
             postImg[i].removeAttribute("height");
             postImg[i].removeAttribute("data-original-width");
@@ -574,16 +676,37 @@ aside .widget .widget-content .gsc-search-button { display:none; }
 
             postImg[i].setAttribute("src", changImg);   
 		}
-	  //]]>
-      </script>
+	}
 
-      
-      <!-- 최근/이전 게시물 제목 표시 -->
-      <script>
-      //<![CDATA[
+	
+	// ----------
+	// 댓글 날짜 표시 설정
+	// ----------
+	function replyDateSetting() {
+		let replyDate = document.querySelectorAll("#comments .datetime > a");
 
+		if(replyDate.length > 0) {
+
+			for(let i = 0; i < replyDate.length; i++) {
+
+				let raplyDateArr = replyDate[i].innerText.split("일")[0].replace(/[^0-9 ]/g, "").split(" ");
+				let year = raplyDateArr[0];
+				let month = (raplyDateArr[1].length > 1 ? raplyDateArr[1] : "0" + raplyDateArr[1]);
+				let day = (raplyDateArr[2].length > 1 ? raplyDateArr[2] : "0" + raplyDateArr[2]);
+
+				replyDate[i].innerText = `${year}년 ${month}월 ${day}일`;
+			}
+		}    
+	}
+
+
+	// ----------
+	// 최근/이전 게시물 제목 표시
+	// ----------
+	function navigaterSetting() {
+	
 		let newerLink = document.getElementById("Blog1_blog-pager-newer-link");
-        let olderLink = document.getElementById("Blog1_blog-pager-older-link");	
+        	let olderLink = document.getElementById("Blog1_blog-pager-older-link");	
 
 		if(newerLink) {
 			getPostTitle(newerLink, "next");
@@ -592,61 +715,107 @@ aside .widget .widget-content .gsc-search-button { display:none; }
 		if(olderLink) {
 			getPostTitle(olderLink, "prev");
 		}
+	}
 
-		function getPostTitle(navLink, type) { 
 
-			let url = navLink.getAttribute("href");
-	
-			fetch(url, {method : "get"})
-				.then(function(response) {
-					return response.text();
-				})
-				.then(function(data){
-					let tempDiv =  document.createElement("div");
-					tempDiv.innerHTML = data;
+	function getPostTitle(navLink, type) { 
 
-					let postTitle = tempDiv.querySelector("h2 a").innerText;
-					let createDiv =  document.createElement("div");
-					createDiv.innerText = postTitle;
-					createDiv.className = type + "-title";
+		let url = navLink.getAttribute("href");
 
-					navLink.parentNode.appendChild(createDiv);
-				})
-				.catch(function(error) {
-					console.log(error);
-				});
+		fetch(url, {method : "get"})
+		.then(function(response) {
+			return response.text();
+		})
+		.then(function(data){
+			let tempDiv =  document.createElement("div");
+			tempDiv.innerHTML = data;
+
+			let postTitle = tempDiv.querySelector("h2 a").innerText;
+			let createDiv =  document.createElement("div");
+			createDiv.innerText = postTitle;
+			createDiv.className = type + "-title";
+
+			navLink.parentNode.appendChild(createDiv);
+		})
+		.catch(function(error) {
+			console.log(error);
+		});
+	}
+
+
+	// ----------
+	// 댓글 메시지 - 댓글 입력란 상단 또는 하단에 출력할 
+	// ----------
+	let msgText = ``;
+
+	let msgElement = document.createElement("p");
+	msgElement.innerHTML = msgText;
+	msgElement.className = "commentMsg";	
+
+	function msgSetting() {
+			
+		let commentMsg = document.getElementsByClassName("commentMsg");	
+
+		if(commentMsg.length > 0) {
+           	commentMsg[0].parentNode.removeChild(commentMsg[0]);
 		}
- 	  //]]>
-      </script>      
+
+        let editor = document.getElementById("comment-editor");
+
+        if(editor == null || editor == undefined) {
+          	return false;
+		}
+
+        // 에디터 위에 추가
+        editor.parentNode.insertBefore(msgElement, editor)
+
+        // 에디터 아래에 추가
+        //editor.parentNode.appendChild(msgElement2, editor)  
+
+		// 에디터가 있는된 댓글에 스타일을 주기 위해 클래스 추가/삭제
+		let activeReply = document.querySelector(".activeReply");
+
+		if(activeReply != null) {
+			activeReply.classList.remove("activeReply");
+		}
+
+		editor.parentNode.classList.add("activeReply");
+	}
+
+	window.onload = function() {
+
+		// 모든 답글 링크에 이벤트추가
+		let comment_reply = document.getElementsByClassName("comment-reply");
+
+		for (i = 0; i < comment_reply.length; i++) {
+			comment_reply[i].addEventListener("click", msgSetting);
+		}	
+
+		msgSetting();
+	}	
+    //]]>
+	</script>      
 
     </b:if>
 
-    <!-- 스크롤 표시 -->
-	<script>
-    //<![CDATA[
-		document.addEventListener("scroll", function() {
-
-			let scollValue = document.body.scrollTop || document.documentElement.scrollTop;
-			let docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  			let scroll = (scollValue / docHeight) * 100;
-
-			document.getElementsByClassName("progressBar")[0].style.width = (scroll + "%");      
-      	})
-	//]]>
-    </script>
-    
-    
-    <!-- 사이드바 타이틀 변경(h2 -> h3) -->
+    <b:if cond='data:blog.pageType == &quot;static_page&quot;'>	
+    <!-- 단일 페이지에만 작동할 스크립트 입력 -->
     <script>
-    //<![CDATA[
-		let sideTitle = document.querySelectorAll("aside h2")
-
-		for(let i = 0; i < sideTitle.length; i++) {
-  			let createHeader = document.createElement("h3");
-  			createHeader.innerText = sideTitle[i].innerText; 
-  			sideTitle[i].parentNode.replaceChild(createHeader, sideTitle[i]);
-		}      
-    //]]>
+	    
     </script>
+    </b:if>
+    
+    
+    <script>      
+      postDateSetting();
+      <b:if cond='data:blog.pageType == &quot;item&quot;'>
+      changeSprImg();
+      changeOgrImg();
+      codeBoxSetting();
+      replyDateSetting();
+      </b:if>  
+    </script>
+	  
+	  
   </body>
 </html>
