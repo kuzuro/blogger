@@ -78,9 +78,9 @@ header #header .description { display:none; }
 
 .post-footer { padding:10px 0; }
 .post-labels a { margin-right:0px; }
-.post-labels a::before { content:&quot;#&quot; }
-.post-labels a::after { content:&quot;&quot;; }
-.post-labels a:last-child::after { content:&quot;&quot;; }
+.post-labels a::before { content:'#' }
+.post-labels a::after { content:''; }
+.post-labels a:last-child::after { content:''; }
 .post-edit { text-align:right; }
 
 
