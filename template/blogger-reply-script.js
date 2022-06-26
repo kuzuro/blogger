@@ -1,3 +1,7 @@
+/*
+  blogger에 기본 내장되는 스크립트에서 댓글 영역만 추출
+  blgger 스크립트 비활성화는 html의 속성에 b:js='false' 
+*/
 //<![CDATA[
 (function () {
 var t;
