@@ -12,6 +12,7 @@
 2023.12.17 / kuzuro
 구글 블로거에 사용된 템플릿
 수정, 가공, 사용 자유
+
 -->
     
     
@@ -57,6 +58,7 @@ header #header .description { display:none; }
 .post-labels a::after { content:""; }
 .post-labels a:last-child::after { content:""; }
 .post-edit { text-align:right; }
+.blog-admin { display:none; }
 #comments { margin:50px 0; }
 .comment-header .user { font-size:28px; font-weight:bold; font-style:normal; display:inline-block; margin-left:15px; }
 .comment-header .user a { color:#000; }
@@ -331,7 +333,13 @@ aside .widget ul > li > ul { margin-left:20px }
                 &lt;/article&gt;
               </b:if>
             </b:includable>
-            <b:includable id='postQuickEdit' var='post'/>
+            <b:includable id='postQuickEdit' var='post'>               
+              <b:with value='data:view.isPage ? &quot;blog/page/edit/&quot; : &quot;blog/post/edit/&quot;' var='path'>
+                <span expr:class='&quot;item-control &quot; + data:post.adminClass'>
+                  <a expr:href='data:blog.bloggerUrl path (data:path + data:blog.blogId + &quot;/&quot; + data:post.id)' expr:title='data:top.editPostMsg'>게시물 수정</a>
+                </span>
+              </b:with>                
+            </b:includable>
             <b:includable id='shareButtons'/>
             <b:includable id='status-message'/>
             <b:includable id='threaded-comment-form'/>
