@@ -144,7 +144,7 @@ footer { margin:0 0 30px 0; text-align:center; font-size:14px; }
 @media screen and (max-width: 800px) { #container { display:block; } #main { width:100%; } .post-body iframe { height:450px; } .comments .comments-content .datetime { display:block; margin:0; } aside { width:100%; margin-top:60px; padding-top:60px; } aside #Label1 .widget-content ul li { display:inline-block; margin-right:10px; } }
 @media screen and (max-width: 600px) { .post-body iframe { height:350px; } }
 ]]></b:skin>  
-    <b:if cond='data:blog.pageType != &quot;item&quot;'><b:if cond='data:blog.pageType != &quot;static_page&quot;'>      
+    <b:if cond='data:blog.pageType == &quot;index&quot;'>
       <style>                
 		.blog-posts .post { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 2px solid #eee; display:flex; }
         .blog-posts .post:last-child { border-bottom:0; }
@@ -160,7 +160,7 @@ footer { margin:0 0 30px 0; text-align:center; font-size:14px; }
 		.post-footer { justify-content:left; }
         @media screen and (max-width: 920px) { .post { justify-content: space-between; flex-direction: column-reverse; } .post .post_info { width:100%; } }
       </style>
-    	</b:if></b:if>
+    	</b:if>
     
     <b:if cond='data:blog.pageType == &quot;item&quot;'>
       <style>
@@ -371,11 +371,12 @@ footer { margin:0 0 30px 0; text-align:center; font-size:14px; }
                         <b:include data='post' name='postQuickEdit'/>
                		</article>                
               	</b:if>
+
               
-				<b:if cond='data:blog.pageType != &quot;item&quot;'>                  
+                         
               	<!-- 게시물 리스트 -->
                   
-					<b:if cond='data:blog.pageType != &quot;static_page&quot;'>                    
+					<b:if cond='data:blog.pageType == &quot;index&quot;'>                    
                    		<b:if cond='data:post.firstImageUrl'>
                       		<meta expr:content='data:post.firstImageUrl' itemprop='image_url'/>
                   		</b:if>
@@ -428,7 +429,7 @@ footer { margin:0 0 30px 0; text-align:center; font-size:14px; }
                       		<data:post.body/>
                     	</div>
                 	</b:if>
-              	</b:if>
+
 			</b:includable>
             <b:includable id='postQuickEdit' var='post'>               
               <b:with value='data:view.isPage ? &quot;blog/page/edit/&quot; : &quot;blog/post/edit/&quot;' var='path'>
